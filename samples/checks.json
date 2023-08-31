@@ -1,0 +1,34 @@
+[
+    {
+        "id": "5a928274-7b6b-42d9-9930-202366272e90",
+        "directives": {
+            "solution": null,
+            "masterOnly": null,
+            "workUnit": null,
+            "check": true,
+            "test": null,
+            "title": "check 1",
+            "grade": 1.0,
+            "match": null,
+            "normalize": null
+        },
+        "text": "True",
+        "type": "execute_result"
+    },
+    {
+        "id": "a13a5f8c-fa08-440b-bc3d-c5b1b66d9d95",
+        "directives": {
+            "solution": null,
+            "masterOnly": null,
+            "workUnit": null,
+            "check": true,
+            "test": null,
+            "title": "check 2",
+            "grade": 1.0,
+            "match": null,
+            "normalize": null
+        },
+        "text": "False",
+        "type": "execute_result"
+    }
+]
