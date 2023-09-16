@@ -61,15 +61,15 @@ def clear_output(nb):
             cell.outputs = []
 
 class Directives(BaseModel):
-    solution: Optional[bool]
-    masterOnly: Optional[bool]
-    workUnit: Optional[bool]    # student's work go here
-    check: Optional[bool]       # unit test for formative assessments
-    test: Optional[bool]        # unit test for summative assessments
-    title: Optional[str]
+    solution: Optional[bool] = None
+    masterOnly: Optional[bool] = None
+    workUnit: Optional[bool] = None    # student's work go here
+    check: Optional[bool] = None       # unit test for formative assessments
+    test: Optional[bool] = None        # unit test for summative assessments
+    title: str = ''
     grade: float = 1.
-    match: Optional[str]        # TODO: Literal[word, line]
-    normalize: Optional[str]    # 
+    match: Optional[str] = 'exact'     # TODO: Literal[word, line]
+    normalize: Optional[str] = None    # 
 
     class Config:
         extra = 'forbid'
@@ -114,7 +114,7 @@ class NormalizeOptions(BaseModel):
     maskAddresses: bool = True
     maskAnsi: bool = True
     ignoreblanks: bool = True
-    round: Optional[int]
+    round: Optional[int] = None
     class Config:
         extra = 'forbid'
 
@@ -402,7 +402,7 @@ class TestReport(BaseModel):
 def get_tokens(directives: Directives, text: str) -> List[str]:
     "break text according to the directives"
     match = directives.match
-    if match is None:
+    if 'exact' in match:
         return [text]
     elif 'line' in match:
         return text.split("\n")
