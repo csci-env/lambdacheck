@@ -252,16 +252,18 @@ def convert_work_unit_to_code(cell):
     new_cell.metadata.update(cell.metadata)
     return new_cell
 
+WORKUNIT_LABEL = "[YOUR WORK HERE]"
+READONLY_LABEL = "[THIS IS READ-ONLY]"
 
 def apply_directives(directives: Directives, lead: str, cell):
     "apply the directives to the cell metadata"
 
     if directives.workUnit:
-        cell.source = '{} {}\n'.format(lead, emoji.emojize(":writing_hand:")) + cell.source
+        cell.source = '{} {}\n'.format(lead, WORKUNIT_LABEL) + cell.source
     else:
         # make it readOnly
         cell.metadata['editable'] = False
-        cell.source = '{} {}\n'.format(lead, emoji.emojize(":locked:")) + cell.source
+        cell.source = '{} {}\n'.format(lead, READONLY_LABEL) + cell.source
 
 
 def clean_outputs(cell):
