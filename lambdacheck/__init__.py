@@ -281,7 +281,7 @@ def get_comment_lead_chars(nb):
         kernel = kernel.lower()
         if 'java' in kernel or 'kotlin' in kernel or 'scala' in kernel:
             lead = '//'
-        elif 'clojure' in kernel:
+        elif 'cloj' in kernel:
             lead = ';'
     except KeyError:
         pass
