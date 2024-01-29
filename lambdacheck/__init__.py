@@ -362,7 +362,7 @@ def make_expected_list(master, test=False, options=None):
 
 def print_expected(expected_list: List[CellResult], console=None):
     if console is None:
-        console = Console()
+        console = Console(markup=False)
 
     for expected in expected_list:
         directives = expected.directives
@@ -550,7 +550,7 @@ def output_test_result(i: int, result: TestResult) -> Group:
 
 def print_report(report: TestReport, console=None):
     if console == None:
-        console = Console()
+        console = Console(markup=False)
     for (i, result) in enumerate(report.results):
         panel = Panel(output_test_result(i, result))
         console.print(panel)
